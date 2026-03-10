@@ -114,7 +114,7 @@ result = fallback.execute(context)
 Run the benchmark suite:
 
 ```bash
-python -m benchmarks.customer_service
+python3 -m benchmarks.customer_service
 ```
 
 Early results from synthetic customer service scenarios:
