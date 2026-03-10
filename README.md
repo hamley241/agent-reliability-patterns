@@ -25,7 +25,7 @@ pip install agent-reliability-patterns
 Or from source:
 
 ```bash
-git clone https://github.com/gpclaws/agent-reliability-patterns.git
+git clone https://github.com/hamley241/agent-reliability-patterns.git
 cd agent-reliability-patterns
 pip install -e .
 ```

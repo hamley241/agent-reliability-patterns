@@ -13,7 +13,7 @@ setup(
     description="Production-ready reliability patterns for AI agents",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/gpclaws/agent-reliability-patterns",
+    url="https://github.com/hamley241/agent-reliability-patterns",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
