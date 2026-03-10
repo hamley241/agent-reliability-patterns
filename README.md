@@ -187,8 +187,8 @@ MIT License. See [LICENSE](LICENSE) for details.
 
 **Goutham Patley** — 10 years building distributed systems at AWS (Lambda, BigMac). Now applying SRE patterns to AI agent reliability.
 
-- [LinkedIn](https://linkedin.com/in/gouthampatley)
-- [Twitter/X](https://twitter.com/gouthampatley)
+- [LinkedIn](https://linkedin.com/in/goutham-patley-b1391b41)
+- [GitHub](https://github.com/hamley241)
 
 ---
 
