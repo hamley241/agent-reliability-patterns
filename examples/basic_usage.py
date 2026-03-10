@@ -5,9 +5,9 @@ This example shows how to integrate the circuit breaker into
 an AI agent's reasoning loop.
 """
 
-from src.circuit_breaker import AIAgentCircuitBreaker, AgentResponse, CircuitState
-from src.confidence import SecondaryModelEvaluator
-from src.fallbacks import (
+from agent_reliability.circuit_breaker import AIAgentCircuitBreaker, AgentResponse, CircuitState
+from agent_reliability.confidence import SecondaryModelEvaluator
+from agent_reliability.fallbacks import (
     ClarificationFallback,
     ContextResetFallback,
     get_fallback,

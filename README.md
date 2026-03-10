@@ -19,7 +19,7 @@ This library applies proven distributed systems patterns to AI agent reliability
 ## Installation
 
 ```bash
-pip install agent-reliability-patterns
+# Not yet on PyPI - install from source (see below)
 ```
 
 Or from source:
@@ -27,7 +27,7 @@ Or from source:
 ```bash
 git clone https://github.com/hamley241/agent-reliability-patterns.git
 cd agent-reliability-patterns
-pip install -e .
+pip install -e . # or use a virtual environment
 ```
 
 ## Quick Start
@@ -121,7 +121,7 @@ Early results from synthetic customer service scenarios:
 
 | Metric | Without Breaker | With Breaker |
 |--------|-----------------|--------------|
-| Avg tokens/session | ~1,800 | ~1,200 |
+| Avg tokens/session | ~500-600 | ~200-300 |
 | Context overflows | Common | Eliminated |
 | Resolution quality | Variable | Improved |
 

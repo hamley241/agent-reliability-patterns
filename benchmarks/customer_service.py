@@ -21,7 +21,7 @@ from pathlib import Path
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.circuit_breaker import AIAgentCircuitBreaker, AgentResponse, CircuitState
+from agent_reliability.circuit_breaker import AIAgentCircuitBreaker, AgentResponse, CircuitState
 
 
 @dataclass

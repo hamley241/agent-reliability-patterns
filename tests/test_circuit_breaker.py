@@ -2,7 +2,7 @@
 
 import pytest
 import time
-from src.circuit_breaker import (
+from agent_reliability.circuit_breaker import (
     AIAgentCircuitBreaker,
     CircuitState,
     AgentResponse,

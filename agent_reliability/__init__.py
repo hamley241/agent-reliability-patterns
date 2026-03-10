@@ -32,3 +32,6 @@ __all__ = [
     "EscalationFallback",
     "FallbackResponse",
 ]
+
+from .metrics import setup_metrics, get_metrics, AgentMetrics
+__all__.extend(["setup_metrics", "get_metrics", "AgentMetrics"])

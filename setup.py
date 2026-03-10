@@ -14,7 +14,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/hamley241/agent-reliability-patterns",
-    packages=find_packages(),
+    packages=find_packages(exclude=["tests", "benchmarks", "examples"]),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",
