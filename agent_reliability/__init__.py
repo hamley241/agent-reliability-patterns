@@ -35,3 +35,12 @@ __all__ = [
 
 from .metrics import setup_metrics, get_metrics, AgentMetrics
 __all__.extend(["setup_metrics", "get_metrics", "AgentMetrics"])
+
+from .load_shedding import (
+    LoadShedder,
+    Task,
+    TaskResult,
+    Priority,
+    DegradationLevel,
+)
+__all__.extend(["LoadShedder", "Task", "TaskResult", "Priority", "DegradationLevel"])
