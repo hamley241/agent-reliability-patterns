@@ -11,10 +11,10 @@ Your AI agent just burned through $47 worth of tokens chasing its own tail. Trad
 
 This library applies proven distributed systems patterns to AI agent reliability:
 
-- **Reasoning Circuit Breakers** — Detect confidence degradation before token waste
-- **Context-Aware Load Shedding** — Handle concurrent users without context overflow
-- **Confidence-Weighted Consensus** — Multi-agent decision validation
-- **Credit-Based Backpressure** — Rate limiting based on reasoning quality
+- **Reasoning Circuit Breakers** ✅ — Detect confidence degradation before token waste  
+- **Context-Aware Load Shedding** ✅ — Priority-based task scheduling with graduated degradation
+- **Confidence-Weighted Consensus** 🚧 — Multi-agent decision validation (*coming soon*)
+- **Credit-Based Backpressure** 🚧 — Rate limiting based on reasoning quality (*coming soon*)
 
 ## Installation
 
@@ -32,6 +32,7 @@ pip install -e . # or use a virtual environment
 
 ## Quick Start
 
+### Circuit Breaker Pattern
 ```python
 from agent_reliability import AIAgentCircuitBreaker, AgentResponse
 
@@ -54,6 +55,21 @@ if breaker.should_trip(response):
 else:
     # Continue normal reasoning
     continue_reasoning()
+```
+
+### Load Shedding Pattern
+```python
+from agent_reliability import LoadShedder, Task, Priority
+
+# Initialize load shedder
+shedder = LoadShedder(budget=5000)
+
+# Create prioritized task
+task = Task("analyze_report", "Analyze Q4 financial data...", Priority.HIGH)
+
+# Submit with automatic load management
+result = shedder.submit(task)
+print(f"Status: {result.success}, Degradation: {result.degradation.value}")
 ```
 
 ## Patterns Included
@@ -95,7 +111,37 @@ evaluator = SecondaryModelEvaluator(model="gpt-3.5-turbo")
 confidence = evaluator.evaluate(response_text)
 ```
 
-### 3. Fallback Strategies
+### 3. Context-Aware Load Shedding
+
+Proactive load management with pre-flight estimation and priority-aware scheduling:
+
+```python
+from agent_reliability import LoadShedder, Task, Priority
+
+# Initialize load shedder with token budget
+shedder = LoadShedder(budget=10000)
+
+# Submit tasks with priorities
+task = Task(
+    id="analyze_docs",
+    prompt="Analyze this 500-page document step by step...",
+    priority=Priority.HIGH
+)
+
+result = shedder.submit(task)
+if result.success:
+    print(f"✅ Processed with {result.degradation.value} quality")
+else:
+    print("🚫 Task shed due to load")
+```
+
+**Key Features:**
+- **Pre-flight estimation** — Calculate token cost before LLM call
+- **5-level degradation** — FULL → SIMPLIFIED → CACHED → MINIMAL → REJECT
+- **Priority scheduling** — CRITICAL tasks never shed, BACKGROUND shed first
+- **Budget tracking** — Stay within token limits automatically
+
+### 4. Fallback Strategies
 
 ```python
 from agent_reliability.fallbacks import (
@@ -107,6 +153,18 @@ from agent_reliability.fallbacks import (
 fallback = ClarificationFallback()
 result = fallback.execute(context)
 # Returns: "I need more specific information to help accurately."
+```
+
+## Testing
+
+Run the built-in demos to validate functionality:
+
+```bash
+# Circuit breaker demo
+python3 agent_reliability/circuit_breaker.py
+
+# Load shedding demo
+python3 agent_reliability/load_shedding.py
 ```
 
 ## Benchmarks
